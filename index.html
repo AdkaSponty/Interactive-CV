@@ -1,123 +1,124 @@
-# Create an interactive HTML CV with collapsible sections using elegant fonts and cursive styling
-
 html_content = """
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Andrea Špontáková - Interactive CV</title>
-    <style>
-        body {
-            font-family: 'Georgia', serif;
-            font-style: italic;
-            background-color: #f9f9f9;
-            margin: 40px;
-            color: #333;
-        }
-        h1 {
-            text-align: center;
-            font-size: 2.5em;
-            margin-bottom: 10px;
-        }
-        .intro {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        .button {
-            display: block;
-            width: 300px;
-            margin: 10px auto;
-            padding: 10px;
-            font-size: 1.2em;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            color: white;
-        }
-        .section {
-            display: none;
-            margin: 20px auto;
-            width: 80%;
-            padding: 15px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            background-color: #fff;
-        }
-        #educationBtn { background-color: #3498db; }
-        #additionalEducationBtn { background-color: #9b59b6; }
-        #employmentBtn { background-color: #e67e22; }
-        #skillsBtn { background-color: #2ecc71; }
-        #additionalInfoBtn { background-color: #e74c3c; }
-    </style>
-    <script>
-        function toggleSection(id) {
-            var section = document.getElementById(id);
-            section.style.display = (section.style.display === "none") ? "block" : "none";
-        }
-    </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Andrea Špontáková - Interactive CV</title>
+  <style>
+    body {
+      font-family: 'Brush Script MT', cursive;
+      background-color: #f5f5dc;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      width: 100%;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    h1 {
+      text-align: center;
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+    .intro {
+      text-align: center;
+      font-size: 1.5em;
+      margin-bottom: 30px;
+    }
+    button {
+      display: block;
+      width: 100%;
+      padding: 20px;
+      font-size: 1.5em;
+      margin: 10px 0;
+      border: none;
+      cursor: pointer;
+      color: white;
+    }
+    .section {
+      display: none;
+      padding: 20px;
+      font-size: 1.2em;
+      background-color: #fff8dc;
+      border-top: 2px solid #ccc;
+    }
+    #educationBtn { background-color: #6a5acd; }
+    #additionalEducationBtn { background-color: #20b2aa; }
+    #employmentBtn { background-color: #ff8c00; }
+    #skillsBtn { background-color: #8b0000; }
+    #additionalInfoBtn { background-color: #2e8b57; }
+    #interestsBtn { background-color: #4682b4; }
+  </style>
 </head>
 <body>
-
+  <div class="container">
     <h1>Andrea Špontáková</h1>
     <div class="intro">
-        <p><strong>Address:</strong> Zbudza 135, p. Staré 07223</p>
-        <p><strong>Date of Birth:</strong> 28.08.1989</p>
-        <p><strong>Email:</strong> andrea.spontakova@gmail.com</p>
+      Address: Zbudza 135, p. Staré 07223<br>
+      Birth Date: 28.08.1989<br>
+      Email: andrea.spontakova@gmail.com
     </div>
 
-    <button class="button" id="educationBtn" onclick="toggleSection('education')">Education</button>
-    <div class="section" id="education">
-        <ul>
-            <li>2007–2012: University of Economics in Bratislava – Business Economy and Management</li>
-            <li>1999–2007: Grammar School in Michalovce – Foreign Languages</li>
-        </ul>
+    <button id="educationBtn">Education</button>
+    <div id="education" class="section">
+      - 2007–2012: University of Economics in Bratislava – Business Economy and Management<br>
+      - 1999–2007: Grammar School in Michalovce – Foreign Languages
     </div>
 
-    <button class="button" id="additionalEducationBtn" onclick="toggleSection('additionalEducation')">Additional Education</button>
-    <div class="section" id="additionalEducation">
-        <ul>
-            <li>Business Accounting (2017) – Slovak Society of Actuaries</li>
-            <li>German Language Course (2013)</li>
-            <li>English Language Courses (2002–2007)</li>
-        </ul>
+    <button id="additionalEducationBtn">Additional Education</button>
+    <div id="additionalEducation" class="section">
+      - Business Accounting (2017) – Slovak Society of Actuaries<br>
+      - German Language Course (2013)<br>
+      - English Language Courses (2002–2007)
     </div>
 
-    <button class="button" id="employmentBtn" onclick="toggleSection('employment')">Employment History</button>
-    <div class="section" id="employment">
-        <ul>
-            <li>Dell Technologies (2017–present)
-                <ul>
-                    <li>Payroll Support Analyst (2017–2021)</li>
-                    <li>Business Analyst (2024–present)</li>
-                </ul>
-            </li>
-            <li>Generali Slovensko (2013–2017) – Risk Management Officer</li>
-            <li>Slovakia Steel Mills (2012–2013) – Graduate Practice</li>
-            <li>RPC Ltd. UK (2011) – Summer Job</li>
-        </ul>
+    <button id="employmentBtn">Employment History</button>
+    <div id="employment" class="section">
+      - Dell Technologies (2017–present)<br>
+        &nbsp;&nbsp;- Payroll Support Analyst (2017–2021)<br>
+        &nbsp;&nbsp;- Business Analyst (2024–present)<br>
+      - Generali Slovensko (2013–2017) – Risk Management Officer<br>
+      - Slovakia Steel Mills (2012–2013) – Graduate Practice<br>
+      - RPC Ltd. UK (2011) – Summer Job
     </div>
 
-    <button class="button" id="skillsBtn" onclick="toggleSection('skills')">Skills</button>
-    <div class="section" id="skills">
-        <ul>
-            <li>Languages: English (B2), German (A1), French (A1)</li>
-            <li>Tools: Excel, Word, PowerPoint, Outlook, SAP, Cognos, AI tools (ChatGPT, Copilot, Canva, GitHub)</li>
-        </ul>
+    <button id="skillsBtn">Skills</button>
+    <div id="skills" class="section">
+      - Languages: English (B2), German (A1), French (A1)<br>
+      - Tools: Excel, Word, PowerPoint, Outlook, SAP, Cognos, AI tools (ChatGPT, Copilot, Canva, GitHub)
     </div>
 
-    <button class="button" id="additionalInfoBtn" onclick="toggleSection('additionalInfo')">Additional Information</button>
-    <div class="section" id="additionalInfo">
-        <ul>
-            <li>Driving License: Group B</li>
-            <li>International exchanges in France and Iceland</li>
-            <li>Interests: AI tools, languages, running, music, philosophy</li>
-        </ul>
+    <button id="additionalInfoBtn">Additional Information</button>
+    <div id="additionalInfo" class="section">
+      - Driving License: Group B<br>
+      - International exchanges in France and Iceland
     </div>
 
+    <button id="interestsBtn">Interests</button>
+    <div id="interests" class="section">
+      - AI tools, languages, running, music, philosophy
+    </div>
+  </div>
+
+  <script>
+    const buttons = [
+      {btn: 'educationBtn', section: 'education'},
+      {btn: 'additionalEducationBtn', section: 'additionalEducation'},
+      {btn: 'employmentBtn', section: 'employment'},
+      {btn: 'skillsBtn', section: 'skills'},
+      {btn: 'additionalInfoBtn', section: 'additionalInfo'},
+      {btn: 'interestsBtn', section: 'interests'}
+    ];
+
+    buttons.forEach(({btn, section}) => {
+      document.getElementById(btn).addEventListener('click', () => {
+        const el = document.getElementById(section);
+        el.style.display = el.style.display === 'none' ? 'block' : 'none';
+      });
+    });
+  </script>
 </body>
 </html>
 """
-
-# Save the HTML content to a file
-with open("index.html", "w", encoding="utf-8") as f:
-    f.write(html_content)
