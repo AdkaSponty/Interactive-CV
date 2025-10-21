@@ -1,103 +1,123 @@
+# Create an interactive HTML CV with collapsible sections using elegant fonts and cursive styling
+
+html_content = """
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Andrea Špontáková - CV</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f9f9f9;
-      margin: 0;
-      padding: 0;
-      color: #333;
-    }
-    header {
-      background-color: #2c3e50;
-      color: white;
-      padding: 2rem;
-      text-align: center;
-    }
-    section {
-      max-width: 900px;
-      margin: 2rem auto;
-      background: white;
-      padding: 2rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    h2 {
-      color: #2c3e50;
-      border-bottom: 1px solid #ccc;
-      padding-bottom: 0.5rem;
-    }
-    ul {
-      padding-left: 1.2rem;
-    }
-    .contact p {
-      margin: 0.3rem 0;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>Andrea Špontáková - Interactive CV</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            font-style: italic;
+            background-color: #f9f9f9;
+            margin: 40px;
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        .intro {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .button {
+            display: block;
+            width: 300px;
+            margin: 10px auto;
+            padding: 10px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: white;
+        }
+        .section {
+            display: none;
+            margin: 20px auto;
+            width: 80%;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+        }
+        #educationBtn { background-color: #3498db; }
+        #additionalEducationBtn { background-color: #9b59b6; }
+        #employmentBtn { background-color: #e67e22; }
+        #skillsBtn { background-color: #2ecc71; }
+        #additionalInfoBtn { background-color: #e74c3c; }
+    </style>
+    <script>
+        function toggleSection(id) {
+            var section = document.getElementById(id);
+            section.style.display = (section.style.display === "none") ? "block" : "none";
+        }
+    </script>
 </head>
 <body>
 
-  <header>
     <h1>Andrea Špontáková</h1>
-    <p>Senior Analyst Business Operations</p>
-    <div class="contact">
-      <p>Zbudza 135, p. Staré 07223</p>
-      <p>| 📧 <a href="mailto:andrea.spontakova@gmail.com" stylea@gmail.com</a></p>
+    <div class="intro">
+        <p><strong>Address:</strong> Zbudza 135, p. Staré 07223</p>
+        <p><strong>Date of Birth:</strong> 28.08.1989</p>
+        <p><strong>Email:</strong> andrea.spontakova@gmail.com</p>
     </div>
-  </header>
 
-  <section>
-    <h2>Education</h2>
-    <ul>
-      <li>University of Economics in Bratislava (2007–2012) – Business Economy and Management / Financial Management</li>
-      <li>Grammar School in Michalovce (1999–2007) – Foreign Languages</li>
-    </ul>
-  </section>
+    <button class="button" id="educationBtn" onclick="toggleSection('education')">Education</button>
+    <div class="section" id="education">
+        <ul>
+            <li>2007–2012: University of Economics in Bratislava – Business Economy and Management</li>
+            <li>1999–2007: Grammar School in Michalovce – Foreign Languages</li>
+        </ul>
+    </div>
 
-  <section>
-    <h2>Additional Education</h2>
-    <ul>
-      <li>Business Accounting – Slovak Society of Actuaries (2017)</li>
-      <li>German Language Course – Institute of European Languages (2013)</li>
-      <li>English Language Courses – Institute of European Languages (2002–2007)</li>
-    </ul>
-  </section>
+    <button class="button" id="additionalEducationBtn" onclick="toggleSection('additionalEducation')">Additional Education</button>
+    <div class="section" id="additionalEducation">
+        <ul>
+            <li>Business Accounting (2017) – Slovak Society of Actuaries</li>
+            <li>German Language Course (2013)</li>
+            <li>English Language Courses (2002–2007)</li>
+        </ul>
+    </div>
 
-  <section>
-    <h2>Employment History</h2>
-    <ul>
-      <li><strong>Generali Slovensko poisťovňa, a.s.</strong> – Risk Management Officer (2013–present)</li>
-      <li><strong>Slovakia Steel Mills, a.s.</strong> – Graduate Practice (2012–2013)</li>
-      <li><strong>RPC Ltd., UK</strong> – Summer Job Abroad (2011)</li>
-      <li><strong>Maternity Leave</strong> (2014–2016)</li>
-    </ul>
-  </section>
+    <button class="button" id="employmentBtn" onclick="toggleSection('employment')">Employment History</button>
+    <div class="section" id="employment">
+        <ul>
+            <li>Dell Technologies (2017–present)
+                <ul>
+                    <li>Payroll Support Analyst (2017–2021)</li>
+                    <li>Business Analyst (2024–present)</li>
+                </ul>
+            </li>
+            <li>Generali Slovensko (2013–2017) – Risk Management Officer</li>
+            <li>Slovakia Steel Mills (2012–2013) – Graduate Practice</li>
+            <li>RPC Ltd. UK (2011) – Summer Job</li>
+        </ul>
+    </div>
 
-  <section>
-    <h2>Skills</h2>
-    <ul>
-      <li>Languages: English (B2), French (A1), German (A1)</li>
-      <li>Software: SAP, Sirael, Cognos, MS Office (Word, Excel, PowerPoint, Outlook)</li>
-      <li>Excel: VLOOKUP, Pivot Tables</li>
-    </ul>
-  </section>
+    <button class="button" id="skillsBtn" onclick="toggleSection('skills')">Skills</button>
+    <div class="section" id="skills">
+        <ul>
+            <li>Languages: English (B2), German (A1), French (A1)</li>
+            <li>Tools: Excel, Word, PowerPoint, Outlook, SAP, Cognos, AI tools (ChatGPT, Copilot, Canva, GitHub)</li>
+        </ul>
+    </div>
 
-  <section>
-    <h2>Additional Information</h2>
-    <ul>
-      <li>International exchanges in France and Iceland</li>
-      <li>Driving License: Group B</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Interests</h2>
-    <p>Responsibility, precision, willingness to learn, team spirit, music, internet, foreign languages, sports (running), philosophical literature</p>
-  </section>
+    <button class="button" id="additionalInfoBtn" onclick="toggleSection('additionalInfo')">Additional Information</button>
+    <div class="section" id="additionalInfo">
+        <ul>
+            <li>Driving License: Group B</li>
+            <li>International exchanges in France and Iceland</li>
+            <li>Interests: AI tools, languages, running, music, philosophy</li>
+        </ul>
+    </div>
 
 </body>
 </html>
+"""
+
+# Save the HTML content to a file
+with open("index.html", "w", encoding="utf-8") as f:
+    f.write(html_content)
